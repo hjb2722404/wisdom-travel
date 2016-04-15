@@ -1,0 +1,155 @@
+.audio-tour {
+  width: 100%;
+  max-width: 480px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  position: fixed;
+  background: #000000;
+  text-align: center;
+
+  .control-bar {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    background : rgba(55,55,55,0.7);
+    z-index: 1000000;
+    line-height: 60px;
+
+    .c-b-btns {
+
+      width: 35%;
+      float: left;
+
+      img {
+        width: 30px;
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+
+    .c-b-progress {
+      width: 50%;
+      float: left;
+      color :#ffffff;
+
+      .c-b-cur-time {
+        width: 30px;
+        float: left;
+        text-align: right;
+
+      }
+      .c-b-bar {
+        width: 55%;
+        height: 60px;
+        line-height: 60px;
+        float: left;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+      }
+      .c-b-total-time {
+        width: 30px;
+        float: left;
+        text-align: left;
+      }
+    }
+
+    .c-b-play-btn {
+      width: 15%;
+      float: left;
+      padding-right: 20px;
+
+      img {
+        width: 60px;
+      }
+    }
+  }
+
+  .audio-gallary {
+    width: 100%;
+    position: absolute;
+    background-color: #000000;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+
+  }
+  .audio-lrc-box {
+    width: 100%;
+    position: absolute;
+    height: 600%;
+    z-index: 1000;
+    overflow: auto;
+    top:35%;
+  }
+
+  .play-btn-big{
+    position: absolute;
+    right: 0;
+    top: 5px;
+
+    img {
+      width: 80px;
+    }
+  }
+  .huxing {
+    width: 100%;
+    height: 54px;
+    background-image: url("../assets/images/huxing.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    float: left;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+  .lrc-scroll-area {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 15px;
+    min-height: 600px;
+    float: left;
+    text-align: center;
+    padding-top: 0px;
+
+    h3 {
+      font-weight: bolder;
+    }
+    h6 {
+      color: #999999;
+    }
+    h5 {
+      color: #666666;
+    }
+
+    .cur-text {
+      font-size: 2rem;
+      font-weight: bolder;
+      color:#17dc81;
+    }
+
+    .lrc-default {
+      text-indent: 2rem;
+    }
+  }
+  .lrc-text {
+    display: none;
+  }
+}
+
+//#audio {
+//  display: none;
+//}

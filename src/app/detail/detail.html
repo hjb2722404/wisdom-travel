@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row">
+            <div class="details">
+                <div class="d-surface-img">
+                    <img ng-src="./assets/images/surface.png" alt=""/>
+                </div>
+                <div class="d-base-info">
+                    <h4>{{detail.details.ticketTitle}}</h4>
+                    <h6>AAAA级景区</h6>
+                    <h3><span>￥</span>{{detail.details.price}}<span>起</span></h3>
+                </div>
+                <div class="d-contact-info weui_panel">
+                    <div class="d-c-time-place">
+                        <h5>地址：苏州市张家港市南沙镇望江路</h5>
+                        <h5>开放时间：8:00-17:00</h5>
+                    </div>
+                    <div class="d-c-phone">
+                        <a ng-href="tel:0512 58379500"><img ng-src="./assets/images/phone.png" alt=""/></a>
+                    </div>
+                </div>
+                <div class="d-tips weui_panel">
+                    <div class="d-t-title">
+                        <h4 class="weui_media_title">预定须知</h4>
+                    </div>
+                    <p class="weui_media_desc">
+                        1.凭票观光一次使用，当日有效，一经售出，恕不退换；<br/>
+                        2.请您在游览中注意文明行为，请勿随地吐痰、乱扔垃圾、破坏游览设施、攀折花木、捕鱼、游泳等；<br/>
+                        3.请您注意安全提示，遵守游览秩序，请勿翻越安全防护栏。<br/>
+                        4.景区自然林木丰富，为森林防火重地，请勿携带易燃等危险品进入景区，并严禁明火；<br/>
+                        5.景区开放时间：8:00-17:00
+                        6.此票使用解释权属香山景区。
+                    </p>
+                </div>
+                <div class="d-intro weui_panel">
+                    <div class="d-t-title  ">
+                        <h4 class="weui_media_title">景区简介</h4>
+                    </div>
+                    <p class="weui_media_desc">
+                        香山旅游风景区位于张家港市西陲南沙镇境内，西接锡澄高速公路、江阴长江大桥和江阴市区，北靠国际贸易商港张家港港和全国唯一的内河港型保税区张家港保税区的张杨路，与长江边的长山、巫山相对，南傍东横河，与稷山相望。东距张家港市区15公里，交通便捷，全山占地面积4．37平方公里，海拔高度为
+                        1 36．6米。山体呈菱形状，由大、小香山组成，为全市之冠。北坡险峻，南坡平缓，顶部开阔，素有江南名山之誉。清康熙《江阴县志》中赞：“香山突出平壤，高峻磅礴，甲于他山。”
+                    </p>
+                </div>
+                <div class="d-point weui_panel">
+                    <div class="d-t-title">
+                        <h4 class="weui_media_title">导览</h4>
+                    </div>
+                    <p class="weui_media_desc">步行推荐线路:展示馆-文化展示廊-樱花园-梅花园-明香湖-九曲桥-溢香堤-藏军洞-聆风塔-滴血岩-鹿女湖-梅花堂-圣过潭。</p>
+                    <p class="weui_media_desc">自驾推荐线路：展示馆-文化展示廊--樱花园-梅花园-明香湖-暗香亭-望江亭-仙牛背-圣过潭-香山寺</p>
+                    <img ng-src="./assets/images/point-pic.jpg" alt=""/>
+                </div>
+                <div class="weui_btn_area">
+                    <a ng-href="#/book?id={{detail.details.id}}" class="weui_btn weui_btn_primary">立即预定</a>
+                </div>
+</div>
+    </div>
+</div>

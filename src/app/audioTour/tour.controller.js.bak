@@ -1,0 +1,132 @@
+(function() {
+  'use strict';
+
+  angular
+    .module('static')
+    .controller('TourController', TourController);
+
+  /** @ngInject */
+  function TourController($timeout, toastr,$scope) {
+    var vm = this;
+
+    vm.awesomeThings = [];
+    vm.classAnimation = '';
+    vm.creationDate = 1459215771733;
+    vm.showToastr = showToastr;
+      vm.aplay = playOrPaused;
+      vm.audio = document.getElementById("audio");
+      vm.lrc = document.getElementById("lrc").innerHTML;
+      vm.tmpArr=[];
+      vm.lrcTimeArr=[];
+      vm.defaultLrc =[];
+      vm.lrcArr = vm.lrc.split("[");
+      vm.lrcHtml='';
+      var isShowLrc;
+      vm.audio.addEventListener('loadedmetadata', function() {
+          $scope.audioTotlaTime = parseInt(vm.audio.duration);
+          vm.totalMinute = parseInt($scope.audioTotlaTime / 60);
+          if(vm.totalMinute < 10){
+              vm.totalMinute = "0"+vm.totalMinute;
+          }
+          vm.totalSecond = parseInt($scope.audioTotlaTime % 60);
+          if(vm.totalSecond<10){
+              vm.totalSecond = "0"+ vm.totalSecond;
+          }
+          $scope.totalTime = ""+vm.totalMinute+":"+vm.totalSecond;
+          angular.element(".c-b-total-time").html($scope.totalTime);
+      });
+      isShowLrc = false;
+      for(var i=2; i< vm.lrcArr.length; i++){
+          vm.tmpArr = vm.lrcArr[i].split(']');
+          vm.lrcTimeArr.push(vm.tmpArr);
+      }
+
+      function buidDefaultLrc(){
+          for(var j=0;j< 12;j++){
+              var curArr = vm.lrcTimeArr[j];
+              var curStr = curArr[1];
+              curStr = curStr.trim();
+              vm.defaultLrc.push(curStr);
+          }
+          //showDefaultLrc(0);
+      }
+
+      function showDefaultLrc(curIndex){
+          console.log("s-start");
+          for(var k=0; k < 12; k++){
+              console.log("k="+k);
+              //var tstr = vm.defaultLrc[k];
+              //if(k=curIndex){
+              //    tstr = '<h5 class="cur-text">'+tstr+'</h5>';
+              //}else{
+              //    tstr = '<h5>'+tstr+'</h5>';
+              //}
+              //vm.lrcHtml += tstr;
+          }
+          //angular.element(".lrc-scroll-area").append(vm.lrcHtml);
+      }
+      function lrcScroll(timestr){
+          var lrc ="";
+          for(var m=0; m<vm.lrcTimeArr.length;m++){
+              vm.lrcTmpArr = vm.lrcTimeArr[m];
+              var tmpTime = vm.lrcTmpArr[0];
+              var str = tmpTime.substr(3,5);
+              if(str == timestr){
+                 lrc += vm.lrcTmpArr[1].trim();
+              }
+          }
+      }
+
+      function playOrPaused(){
+          if(!isNaN(vm.audio.duration)){
+              if(vm.audio.paused){
+                  vm.audio.play();
+                  vm.updateTime =window.setInterval(function(){
+                      $scope.audioCurTime =parseInt(vm.audio.currentTime);
+                      vm.pagenent = $scope.audioCurTime /$scope.audioTotlaTime *100+"%";
+                      vm.minuteNum = parseInt($scope.audioCurTime / 60);
+                      if(vm.minuteNum<10){
+                          vm.minuteNum="0"+vm.minuteNum;
+                      }
+                      vm.secondNum = parseInt($scope.audioCurTime % 60);
+                      if(vm.secondNum<10){
+                          vm.secondNum="0"+vm.secondNum;
+                      }
+                      $scope.timeStr =""+vm.minuteNum+":"+vm.secondNum;
+                      angular.element(".c-b-cur-time").html($scope.timeStr);
+                      angular.element(".js_progress").css("width",vm.pagenent);
+                      lrcScroll($scope.timeStr);
+                  },1000);
+                  return;
+              }
+          }
+          vm.audio.pause();
+          window.clearInterval(vm.updateTime);
+      }
+    $scope.showOrHideLrc = function(){
+        var lrcbox = angular.element(".audio-lrc-box");
+        if(isShowLrc){
+            lrcbox.css("top","100%").fadeOut();
+            isShowLrc = !isShowLrc;
+        }else{
+            lrcbox.css("top","30%").fadeIn();
+            isShowLrc = !isShowLrc;
+        }
+    };
+    activate();
+
+    function activate() {
+        buidDefaultLrc();
+
+      $timeout(function() {
+        vm.classAnimation = 'rubberBand';
+      }, 4000);
+    }
+
+    function showToastr() {
+      toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
+      vm.classAnimation = '';
+    }
+
+  }
+})();

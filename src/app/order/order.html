@@ -1,0 +1,24 @@
+<div class="container-fluid tickets">
+    <div class="row">
+        <div class="col-md-12 ">
+            <ul class="orders">
+                <li ng-repeat="o in order.orders">
+                    <div class="used" ng-show="o.status == 2"></div>
+                    <div class=" t-surface-img">
+                        <img ng-src="{{o.ticketImgUrl}}" alt=""/>
+                    </div>
+                    <div class="t-infos">
+                        <h4>{{o.orderTitle}}</h4>
+                        <h6>Xiang Shan scenic area E-ticket</h6>
+
+                        <h3>券码：{{o.redddmCode}}</h3>
+                        <h6>{{o.ticketType}} {{o.price}}元</h6>
+                        <h6>当日有效：{{o.playTime}}</h6>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="clear-fix"></div>
+</div>

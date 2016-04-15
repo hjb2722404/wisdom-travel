@@ -1,0 +1,90 @@
+.tickets {
+  background-color: #2f2f42;
+
+}
+
+.tickets-list{
+  width: 96%;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Helvetica Neue", Helvetica, Arial, "微软雅黑";
+
+  ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-top: 40px;
+
+    li {
+      width: 100%;
+      display: inline-block;
+      background-color: #ffffff;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+
+      .t-ls-surface {
+        img {
+          width: 100%;
+          border-radius: 10px 10px 0 0px;
+
+        }
+
+      }
+      .t-ls-title,
+      .t-ls-infos,
+      .t-ls-btn {
+        padding: 15px;
+      }
+      .t-ls-title {
+        h4 {
+          font-weight: bolder;
+          color: #000000;
+        }
+        h6 {
+          color:#17dc81;
+        }
+
+        .t-ls-price {
+
+          text-align: right;
+          h3 {
+            color: #8bedc0;
+            font-weight: bold;
+          }
+
+          h5 {
+            color :#999999;
+          }
+
+        }
+      }
+      .t-ls-infos {
+
+        h5 {
+          color:#999999;
+        }
+
+      }
+      .t-ls-btn {
+          a {
+            display: block;
+            width: 120px;
+            height: 46px;
+            line-height: 40px;
+            border: 1px solid #8bedc0;
+            text-align: center;
+            border-radius: 5px;
+            color: #8bedc0;
+            font-size: 2rem;
+            font-weight: 500;
+            text-decoration: none;
+          }
+      }
+    }
+
+  }
+
+}

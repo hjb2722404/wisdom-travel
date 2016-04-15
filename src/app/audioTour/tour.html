@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <div class="audio-tour">
+        <div class="control-bar">
+            <audio src="" id="audio" class="audio"></audio>
+            <div class="c-b-btns">
+                <img ng-src="./assets/images/lrc-default.png" alt="" ng-show="isLd" ng-init="isLd=true" ng-click="tour.showOrHideLrc();isLd=!isLd;sBtnShow=!sBtnShow;" />
+                <img ng-src="./assets/images/lrc.png" alt="" ng-show="!isLd" ng-click="tour.showOrHideLrc();isLd=!isLd;sBtnShow=!sBtnShow;" />
+                <img ng-src="./assets/images/gallary-default.png" ng-show="isLd" alt="" ng-click="tour.showOrHideLrc();isLd=!isLd;sBtnShow=!sBtnShow;"/>
+                <img ng-src="./assets/images/gallary.png" alt="" ng-show="!isLd" ng-click="tour.showOrHideLrc();isLd=!isLd;sBtnShow=!sBtnShow;"/>
+            </div>
+            <div class="c-b-progress">
+                <span class="c-b-cur-time">00:00</span>
+                <div class="weui_progress c-b-bar">
+                    <div class="weui_progress_bar">
+                        <div class="weui_progress_inner_bar js_progress" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <span class="c-b-total-time">00:00</span>
+            </div>
+            <div class="c-b-play-btn" ng-show="sBtnShow" ng-init="sBtnShow=true;">
+                <img ng-src="./assets/images/play.png" alt="" ng-show="isStop" ng-init="isStop=true;" ng-click="tour.aplay();isStop =!isStop;" />
+                <img ng-src="./assets/images/stop.png" alt="" ng-show="!isStop" ng-click="tour.aplay(); isStop=!isStop;" />
+            </div>
+        </div>
+        <div class="audio-gallary">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+                <!-- 轮播（Carousel）指标 -->
+                <!--<ol class="carousel-indicators">-->
+                    <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
+                    <!--<li data-target="#myCarousel" data-slide-to="1"></li>-->
+                    <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
+                <!--</ol>-->
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img ng-src="./assets/images/tour/{{tour.audioInfo.enNameShort}}.jpg" alt="First slide">
+                    </div>
+                    <!--<div class="item">-->
+                        <!--<img ng-src="./assets/images/wjt/wjt2.jpg" alt="Second slide">-->
+                    <!--</div>-->
+                    <!--<div class="item">-->
+                        <!--<img ng-src="./assets/images/wjt/wjt3.jpg" alt="Third slide">-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+        <div class="audio-lrc-box">
+            <div class="huxing">
+                <img ng-src="./assets/images/huxing.png" alt=""/>
+            </div>
+            <div class="play-btn-big">
+                <img ng-src="./assets/images/play.png" alt="" ng-show="isBStop" ng-init="isBStop=true;" ng-click="tour.aplay();isBStop =!isBStop;" />
+                <img ng-src="./assets/images/stop.png" alt="" ng-show="!isBStop" ng-click="tour.aplay(); isBStop=!isBStop;" />
+            </div>
+            <div class="lrc-scroll-area">
+                <h3>{{tour.audioInfo.zhName}}</h3>
+                <h6>{{tour.audioInfo.enName}}</h6>
+                <div class="lrc-default">
+                    <p>
+                        {{tour.audioInfo.tourText}}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

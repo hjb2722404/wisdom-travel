@@ -1,0 +1,34 @@
+.weui_label {
+  width: 5em;
+}
+
+.weui_msg_title {
+  color: green;
+  font-weight: bolder;
+  font-family: "Helvetica Neue", Helvetica, Arial, "黑体", sans-serif;
+
+}
+.weui_msg_desc{
+  color:#999999;
+  font-family: "Helvetica Neue", Helvetica, Arial, "微软雅黑";
+
+}
+
+.t-num {
+  span {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 1px solid green;
+    text-align: center;
+    line-height:18px;
+    font-weight: bolder;
+    color:#04be02;
+    font-size: 2rem;
+  }
+}
+
+#t-num {
+  width: 100px;
+}
+

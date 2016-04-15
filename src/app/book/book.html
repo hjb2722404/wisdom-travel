@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="row">
+        <form name= "tForm" method="post" ng-submit="book.save()">
+        <div class="weui_cells_title">
+            <h4>选择门票类型</h4>
+        </div>
+        <div class="weui_cells weui_cells_radio">
+            <div class="weui_cell weui_check_label">
+                <div class="weui_cell_hd">
+                    <input type="radio" name="tType" id="tType1"  ng-value="{{book.details.ticketType}}" class="weui_check" checked="checked"/>
+                    <span class="weui_icon_checked"></span>
+                </div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>{{book.details.ticketType}}</p>
+                </div>
+                <div class="weui_cell_ft">
+                    <h5>￥{{book.details.price}}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="weui_cells">
+            <div class="weui_cell">
+                <div class="weui_cell_hd">
+                    <label for="date" class="weui_label"><i class="weui_icon_waiting_circle"></i>日期</label>
+                </div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input type="date" class="weui_input" id="date" name="tDate" ng-model="book.tDate"  required/>
+                </div>
+                <div class="weui_cell_ft" ng-show="tForm.tDate.$dirty && tForm.tDate.$invalid">
+                    <i class="weui_icon_warn"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui_cells">
+            <div class="weui_cells_title">
+                <h4>选择数量</h4>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary t-num">
+                    <span ng-click="book.num('-')">-</span>
+                    <input type="number" id="t-num" ng-value="{{book.tNum}}"  ng-model="book.tNum" ng-init="book.tNum=1" min="0"  name="tNum" required/>
+                    <span ng-click="book.num('+')">+</span>
+
+                </div>
+                <div class="weui_cell_ft">
+                    <h5>订单总价：<span>{{book.tNum * book.details.price}}元</span></h5>
+                </div>
+            </div>
+        </div>
+        <div class="weui_cells">
+            <div class="weui_cells_title">
+                <h4>取票人信息</h4>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd ">
+                    <label for="t-username" class="weui_label">取票人</label>
+                </div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input type="text" id="t-username" ng-value="{{book.orderInfos.tUsername}}"  name="tUsername" ng-model="book.tUsername"  placeholder="请输入取票人姓名" class="weui_input" required/>
+                </div>
+                <div class="weui_cell_ft" ng-show="tForm.tUsername.$dirty && tForm.tUsername.$invalid">
+                    <i class="weui_icon_warn"></i>
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd">
+                    <label for="t-phone" class="weui_label">手机号</label>
+                </div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input type="tel" id="t-phone" ng-value="{{book.orderInfos.tPhone}}" ng-model="book.tPhone" name="tPhone" ng-pattern="/^1[0-9]{10}$/" placeholder="请输入取票手机号" class="weui_input" required/>
+                </div>
+                <div class="weui_cell_ft" ng-show="tForm.tPhone.$dirty && tForm.tPhone.$invalid">
+                    <i class="weui_icon_warn"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui_btn_area">
+            <button type="submit"  class="weui_btn weui_btn_primary" ng-disabled="tForm.$invalid">立即预定</button>
+        </div>
+        </form>
+    </div>
+</div>

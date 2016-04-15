@@ -1,0 +1,71 @@
+.details {
+  width: 100%;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Helvetica Neue", Helvetica, Arial, "微软雅黑";
+
+  .d-surface-img {
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .d-base-info,
+  .d-contact-info,
+  .d-c-phone,
+  .d-tips,
+  .d-intro,
+  .d-point {
+    padding: 15px;
+  }
+
+  .d-base-info {
+    text-align: center;
+
+    h4 {
+        font-weight: bolder;
+    }
+
+    h6 {
+      color: #17dc81;
+    }
+    h3 {
+      color: #8bedc0;
+
+      span {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .d-contact-info {
+
+    .d-c-time-place{
+      width:80%;
+      float: left;
+
+      h5 {
+        line-height: 2rem;
+        color: #999999;
+      }
+
+    }
+    .d-c-phone{
+      width: 18%;
+      float: right;
+    }
+  }
+
+  .d-point {
+    img {
+      width: 100%;
+    }
+  }
+  
+  p {
+    color: #666666;
+  }
+
+}
